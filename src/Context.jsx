@@ -17,8 +17,12 @@ const AppProvider = ({ children }) => {
   //will use this function when we select the img of a meal and pass the id
   const selectMeal = (idMeal, favoriteMeal) => {
     let meal;
+    if (favoriteMeal) {
+      meal = favorites.find((meal) => meal.idMeal === idMeal);
+    } else {
+      meal = meals.find((meal) => meal.idMeal === idMeal);
+    }
 
-    meal = meals.find((meal) => meal.idMeal === idMeal);
     setSelectedMeal(meal);
     setShowModal(true);
   };
