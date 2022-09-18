@@ -166,6 +166,14 @@ ul {
 /* End Of Global Styles */
 /* End Of Global Styles */
 
+/*header*/
+.header {
+  text-align: center;
+  font-style: italic;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
 /* Search */
 .search-container {
   height: 5rem;
@@ -221,7 +229,9 @@ ul {
   cursor: pointer;
 }
 .remove-btn {
-  margin-top: 0.25rem;
+  margin: auto;
+  display: flex;
+
   background: transparent;
   color: var(--white);
   border: transparent;

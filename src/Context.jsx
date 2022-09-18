@@ -13,6 +13,7 @@ const AppProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [selectedMeal, setSelectedMeal] = useState(null);
+  const [favorites, setFavorites] = useState([]);
   //will use this function when we select the img of a meal and pass the id
   const selectMeal = (idMeal, favoriteMeal) => {
     let meal;
@@ -54,6 +55,23 @@ const AppProvider = ({ children }) => {
     setShowModal(false);
   };
 
+  const addToFavorites = (idMeal) => {
+    //check if already selected in favorites
+    const alreadyFavorite = favorites.find((meal) => meal.idMeal === idMeal);
+    //if true just return
+    if (alreadyFavorite) return;
+    //check the meal id and assigned to the selected
+    const meal = meals.find((meal) => meal.idMeal === idMeal);
+    //update the state with new selected favorites
+    const updatedFavorites = [...favorites, meal];
+    setFavorites(updatedFavorites);
+  };
+
+  const removeFromFavorites = (idMeal) => {
+    //for removing a meal from favorites we use the filter() to make a new array of updated meal ids excluding the selected and update the state again
+    const updatedFavorites = favorites.filter((meal) => meal.idMeal !== idMeal);
+    setFavorites(updatedFavorites);
+  };
   return (
     <AppContext.Provider
       value={{
@@ -65,6 +83,9 @@ const AppProvider = ({ children }) => {
         selectMeal,
         selectedMeal,
         closeModal,
+        addToFavorites,
+        removeFromFavorites,
+        favorites,
       }}
     >
       {children}
