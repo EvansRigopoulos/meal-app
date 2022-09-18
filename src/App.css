@@ -316,6 +316,7 @@ ul {
   border-radius: var(--borderRadius);
 }
 .modal-img {
+  width: max-content;
   height: 15rem;
   border-top-left-radius: var(--borderRadius);
   border-top-right-radius: var(--borderRadius);

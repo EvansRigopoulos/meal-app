@@ -10,7 +10,6 @@ const Search = () => {
     if (text) {
       setSearchTerm(text);
     }
-    console.log(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +17,12 @@ const Search = () => {
       setSearchTerm(text);
       setText('');
     }
+  };
+
+  const handleRandomMeal = () => {
+    setSearchTerm('');
+    setText('');
+    fetchRandomMeal();
   };
 
   return (
@@ -37,7 +42,7 @@ const Search = () => {
         <button
           className='btn btn-hipster'
           type='btn'
-          onClick={fetchRandomMeal}
+          onClick={handleRandomMeal}
         >
           Surprise Me!
         </button>

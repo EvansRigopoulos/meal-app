@@ -4,7 +4,7 @@ import { BsHandThumbsUp } from 'react-icons/bs';
 import { useGlobalContext } from '../Context';
 const Meals = () => {
   //destructuring of custom hook
-  const { loading, meals } = useGlobalContext();
+  const { loading, meals, selectMeal } = useGlobalContext();
   if (loading) {
     return (
       <section className='section'>
@@ -15,7 +15,7 @@ const Meals = () => {
   if (meals.length < 1) {
     return (
       <section className='section'>
-        <h4>No meals matched your search term.PLease try again.</h4>
+        <h4>No meals matched your search term.Please try again.</h4>
       </section>
     );
   }
@@ -33,6 +33,7 @@ const Meals = () => {
               className='img'
               style={{ width: '360px' }}
               alt=''
+              onClick={() => selectMeal(idMeal)}
             />
             <footer>
               <h5>{title}</h5>
