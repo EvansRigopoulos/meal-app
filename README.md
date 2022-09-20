@@ -11,3 +11,7 @@
   - Search
   - Add to favorites
   - Remove from list
+  
+## Deployed with Heroku 
+* Link:https://meal---app.herokuapp.com/
+
